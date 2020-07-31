@@ -1,0 +1,664 @@
+{
+	"info": {
+		"_postman_id": "6206e670-cb81-4f43-b090-a868c395da06",
+		"name": "emailScheduler",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get all schedules",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/findAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"findAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete schedule",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/delete/send email Monthly",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"delete",
+						"send email Monthly"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update schedule",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"text\": \"testing a Monthly schedule email.\",\r\n    \"subject\": \"schedule email Monthly\",\r\n    \"jobName\": \"send email Monthly\",\r\n    \"to\": \"<sender-gmail-id-here>\",\r\n    \"from\": \"<receiver-gmail-id-here>\",\r\n    \"scheduledTime\":\"30 days\",\r\n    \"frequency\":\"Monthly\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "schedule new email Daily",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"to\": \"<receiver-gmail-id-here>\",\n    \"from\": \"<sender-gmail-id-here>\",\n    \"text\": \"schedule email tested successfully.\",\n    \"subject\": \"schedule email Daily test\",\n    \"scheduledTime\":\"2020-07-05\",\n    \"frequency\":\"Daily\", \n    \"jobName\": \"send email Daily\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/createSchedule",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"createSchedule"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "custom schedule email",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"to\": \"dimplekanwar.dks@gmail.com\",\n    \"from\": \"dimpleshekhawat13@gmail.com\",\n    \"text\": \"schedule email tested successfully.\",\n    \"subject\": \"schedule email Weekly test\",\n    \"scheduledTime\":\"1 week\",\n    \"frequency\":\"Weekly\", \n    \"jobName\": \"send email Weekly\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/createSchedule -success",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"createSchedule -success"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "103"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"67-lIkSryTershjax9fLIGzYKbruVs\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 01 Jul 2020 14:57:43 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"email scheduled successfully.\",\n    \"data\": \"250 2.0.0 OK  1593615465 64sm6609433pgb.63 - gsmtp\"\n}"
+				},
+				{
+					"name": "custom schedule email - success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"to\": \"dimplekanwar.dks@gmail.com\",\n    \"from\": \"dimpleshekhawat13@gmail.com\",\n    \"text\": \"schedule email tested successfully.\",\n    \"subject\": \"schedule email Custom test\",\n    \"scheduledTime\":\"today at 8:12pm\",\n    \"frequency\":\"Custom\", \n    \"jobName\": \"send email Custom\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/createSchedule",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"createSchedule"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "106"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"6a-FXLjAzGzJnj1sLYny2O5S4dBUsc\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 01 Jul 2020 14:42:13 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"email scheduled successfully.\",\n    \"data\": \"250 2.0.0 OK  1593614536 n137sm6365711pfd.194 - gsmtp\"\n}"
+				}
+			]
+		},
+		{
+			"name": "schedule new email weekly",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"to\": \"<receiver-gmail-id-here>\",\n    \"from\": \"<sender-gmail-id-here>\",\n    \"text\": \"schedule email tested successfully.\",\n    \"subject\": \"schedule email Weekly test\",\n    \"scheduledTime\":\"tuesday at 9am\",\n    \"frequency\":\"Weekly\", \n    \"jobName\": \"send email Weekly\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/createSchedule",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"createSchedule"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "custom schedule email",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"to\": \"dimplekanwar.dks@gmail.com\",\n    \"from\": \"dimpleshekhawat13@gmail.com\",\n    \"text\": \"schedule email tested successfully.\",\n    \"subject\": \"schedule email Weekly test\",\n    \"scheduledTime\":\"1 week\",\n    \"frequency\":\"Weekly\", \n    \"jobName\": \"send email Weekly\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/createSchedule -success",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"createSchedule -success"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "103"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"67-lIkSryTershjax9fLIGzYKbruVs\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 01 Jul 2020 14:57:43 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"email scheduled successfully.\",\n    \"data\": \"250 2.0.0 OK  1593615465 64sm6609433pgb.63 - gsmtp\"\n}"
+				},
+				{
+					"name": "custom schedule email - success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"to\": \"dimplekanwar.dks@gmail.com\",\n    \"from\": \"dimpleshekhawat13@gmail.com\",\n    \"text\": \"schedule email tested successfully.\",\n    \"subject\": \"schedule email Custom test\",\n    \"scheduledTime\":\"today at 8:12pm\",\n    \"frequency\":\"Custom\", \n    \"jobName\": \"send email Custom\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/createSchedule",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"createSchedule"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "106"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"6a-FXLjAzGzJnj1sLYny2O5S4dBUsc\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 01 Jul 2020 14:42:13 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"email scheduled successfully.\",\n    \"data\": \"250 2.0.0 OK  1593614536 n137sm6365711pfd.194 - gsmtp\"\n}"
+				}
+			]
+		},
+		{
+			"name": "schedule new email Monthly",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"to\": \"<receiver-gmail-id-here>\",\n    \"from\": \"<sender-gmail-id-here>\",\n    \"text\": \"schedule email tested successfully.\",\n    \"subject\": \"schedule email Monthly test\",\n    \"scheduledTime\":\"16th of every month\",\n    \"frequency\":\"Monthly\", \n    \"jobName\": \"send email Monthly\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/createSchedule",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"createSchedule"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "custom schedule email",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"to\": \"dimplekanwar.dks@gmail.com\",\n    \"from\": \"dimpleshekhawat13@gmail.com\",\n    \"text\": \"schedule email tested successfully.\",\n    \"subject\": \"schedule email Weekly test\",\n    \"scheduledTime\":\"1 week\",\n    \"frequency\":\"Weekly\", \n    \"jobName\": \"send email Weekly\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/createSchedule -success",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"createSchedule -success"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "103"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"67-lIkSryTershjax9fLIGzYKbruVs\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 01 Jul 2020 14:57:43 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"email scheduled successfully.\",\n    \"data\": \"250 2.0.0 OK  1593615465 64sm6609433pgb.63 - gsmtp\"\n}"
+				},
+				{
+					"name": "custom schedule email - success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"to\": \"dimplekanwar.dks@gmail.com\",\n    \"from\": \"dimpleshekhawat13@gmail.com\",\n    \"text\": \"schedule email tested successfully.\",\n    \"subject\": \"schedule email Custom test\",\n    \"scheduledTime\":\"today at 8:12pm\",\n    \"frequency\":\"Custom\", \n    \"jobName\": \"send email Custom\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/createSchedule",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"createSchedule"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "106"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"6a-FXLjAzGzJnj1sLYny2O5S4dBUsc\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 01 Jul 2020 14:42:13 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"email scheduled successfully.\",\n    \"data\": \"250 2.0.0 OK  1593614536 n137sm6365711pfd.194 - gsmtp\"\n}"
+				}
+			]
+		},
+		{
+			"name": "schedule new email Custom",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"to\": \"<receiver-gmail-id-here>\",\n    \"from\": \"<sender-gmail-id-here>\",\n    \"text\": \"schedule email tested successfully.\",\n    \"subject\": \"schedule email Custom test\",\n    \"scheduledTime\":\"2020-07-09 12:30:00,2020-07-11 12:30:00,2020-07-21 12:30:00,2020-07-24 12:30:00\",\n    \"frequency\":\"Custom\", \n    \"jobName\": \"send email Custom\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/createSchedule",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"createSchedule"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "custom schedule email - success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"to\": \"dimplekanwar.dks@gmail.com\",\n    \"from\": \"dimpleshekhawat13@gmail.com\",\n    \"text\": \"schedule email tested successfully.\",\n    \"subject\": \"schedule email Custom test\",\n    \"scheduledTime\":\"today at 8:12pm\",\n    \"frequency\":\"Custom\", \n    \"jobName\": \"send email Custom\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/createSchedule",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"createSchedule"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "106"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"6a-FXLjAzGzJnj1sLYny2O5S4dBUsc\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 01 Jul 2020 14:42:13 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"email scheduled successfully.\",\n    \"data\": \"250 2.0.0 OK  1593614536 n137sm6365711pfd.194 - gsmtp\"\n}"
+				},
+				{
+					"name": "custom schedule email",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"to\": \"dimplekanwar.dks@gmail.com\",\n    \"from\": \"dimpleshekhawat13@gmail.com\",\n    \"text\": \"schedule email tested successfully.\",\n    \"subject\": \"schedule email Weekly test\",\n    \"scheduledTime\":\"1 week\",\n    \"frequency\":\"Weekly\", \n    \"jobName\": \"send email Weekly\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/createSchedule -success",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"createSchedule -success"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "103"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"67-lIkSryTershjax9fLIGzYKbruVs\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 01 Jul 2020 14:57:43 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"email scheduled successfully.\",\n    \"data\": \"250 2.0.0 OK  1593615465 64sm6609433pgb.63 - gsmtp\"\n}"
+				}
+			]
+		}
+	],
+	"protocolProfileBehavior": {}
+}

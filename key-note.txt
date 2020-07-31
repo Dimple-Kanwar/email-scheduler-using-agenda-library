@@ -1,0 +1,3 @@
+resume scheduled jobs on server restart works in following steps:
+    1. reset previous scheduled jobs settings to re-run.
+    2. all previous scheduled jobs will start running only when someone tries to schedule a new email.

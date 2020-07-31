@@ -1,0 +1,26 @@
+{
+  "name": "scheduled-email",
+  "version": "1.0.0",
+  "description": "send an email at scheduled time once or recurring.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dimple Kanwar",
+  "license": "ISC",
+  "dependencies": {
+    "agenda": "^3.1.0",
+    "body-parser": "^1.19.0",
+    "cron": "^1.8.2",
+    "express": "^4.17.1",
+    "human-interval": "^1.0.0",
+    "moment": "^2.27.0",
+    "mongoose": "^5.9.20",
+    "nodemailer": "^6.4.10",
+    "set-tz": "^0.2.0",
+    "utils": "^0.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}

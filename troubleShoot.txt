@@ -1,0 +1,29 @@
+error:  Error: Invalid login: 535-5.7.8 Username and Password not accepted. Learn more at
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials q22sm4878819pgn.91 - gsmtp
+    at SMTPConnection._formatError (D:\blockchain\freelance-projects\node-assignment\node_modules\nodemailer\lib\smtp-connection\index.js:784:19)
+    at SMTPConnection._actionAUTHComplete (D:\blockchain\freelance-projects\node-assignment\node_modules\nodemailer\lib\smtp-connection\index.js:1523:34)
+    at SMTPConnection.<anonymous> (D:\blockchain\freelance-projects\node-assignment\node_modules\nodemailer\lib\smtp-connection\index.js:550:26)
+    at SMTPConnection._processResponse (D:\blockchain\freelance-projects\node-assignment\node_modules\nodemailer\lib\smtp-connection\index.js:942:20)
+    at SMTPConnection._onData (D:\blockchain\freelance-projects\node-assignment\node_modules\nodemailer\lib\smtp-connection\index.js:749:14)
+    at TLSSocket.SMTPConnection._onSocketData (D:\blockchain\freelance-projects\node-assignment\node_modules\nodemailer\lib\smtp-connection\index.js:195:44)
+    at TLSSocket.emit (events.js:310:20)
+    at addChunk (_stream_readable.js:286:12)
+    at readableAddChunk (_stream_readable.js:268:9)
+    at TLSSocket.Readable.push (_stream_readable.js:209:10)
+    at TLSWrap.onStreamRead (internal/stream_base_commons.js:186:23) {
+  code: 'EAUTH',
+  response: '535-5.7.8 Username and Password not accepted. Learn more at\n' +
+    '535 5.7.8  https://support.google.com/mail/?p=BadCredentials q22sm4878819pgn.91 - gsmtp',
+  responseCode: 535,
+  command: 'AUTH PLAIN'
+}
+
+solution:
+1. make settings in your gmail account which you will be using for sending email to some other email.
+2. go to below link:
+    https://support.google.com/mail/answer/7126229?p=BadCredentials&visit_id=637291862739324835-2851960196&rd=2#cantsignin
+3. try giving access to less secured apps.
+4. https://www.google.com/accounts/DisplayUnlockCaptcha --> click on continue
+
+then try again the test.
+
