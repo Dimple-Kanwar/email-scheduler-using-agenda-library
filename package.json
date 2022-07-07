@@ -14,7 +14,7 @@
     "cron": "^1.8.2",
     "express": "^4.17.1",
     "human-interval": "^1.0.0",
-    "moment": "^2.27.0",
+    "moment": "^2.29.4",
     "mongoose": "^5.9.20",
     "nodemailer": "^6.4.10",
     "set-tz": "^0.2.0",
